@@ -53,7 +53,10 @@ mrrobinsmith.res = {
     tile6: "res/tiles/tile_6.png",
     tile7: "res/tiles/tile_7.png",
     
-    arial: "res/Arial.ttf"
+    arial: "res/fonts/Arial.ttf",
+
+    correct: "res/sounds/correct.wav",
+    wrong: "res/sounds/wrong.wav"
 };
 
 mrrobinsmith.resources = [];

@@ -143,6 +143,7 @@ var GameLayer = cc.Layer.extend({
 
         this.turned.forEach(function (tile) {
             if (match) {
+                cc.audioEngine.playEffect(mrrobinsmith.res.correct)
                 tile.lock()
             }
             else {
