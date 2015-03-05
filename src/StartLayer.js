@@ -17,8 +17,6 @@ var StartLayer = cc.Layer.extend({
         var menu = new cc.Menu(menuItemPlay);
         menu.setPosition(centerpos);
         this.addChild(menu);
-
-        //this.onPlay()
     },
 
     onPlay : function(){

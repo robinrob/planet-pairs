@@ -25,9 +25,9 @@ mrrobinsmith.tileColors = [
 ]
 
 mrrobinsmith.g = {
-    buttonOuterColor: mrrobinsmith.colors.purple,
-    buttonInnerColor: mrrobinsmith.colors.pink,
-    buttonTextColor: mrrobinsmith.colors.purple
+    buttonOuterColor: mrrobinsmith.colors.orange,
+    buttonInnerColor: mrrobinsmith.colors.green,
+    buttonTextColor: mrrobinsmith.colors.orange
 }
 
 mrrobinsmith.res = {

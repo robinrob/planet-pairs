@@ -123,8 +123,17 @@ var GameLayer = cc.Layer.extend({
 
             if (this.turned.length == 2) {
                 this.incMoves()
-                var pause = setTimeout(function () {
-                    that.checkMatch()
+                var isMatch = this.checkMatch()
+                if (isMatch) {
+                    cc.audioEngine.playEffect(mrrobinsmith.res.correct)
+                }
+                else {
+                    setTimeout(function () {
+                        cc.audioEngine.playEffect(mrrobinsmith.res.wrong)
+                    }, 300)
+                }
+                setTimeout(function () {
+                    that.turnTiles(isMatch)
                 }, 1000)
             }
         }
@@ -134,16 +143,19 @@ var GameLayer = cc.Layer.extend({
         var match = true
         var tag = this.turned[0].tag()
 
-        var that = this
         this.turned.forEach(function (tile) {
             if (tile.tag() != tag) {
                 match = false
             }
         }, this)
 
+        return match
+    },
+
+    turnTiles: function(isMatch) {
+        var that = this
         this.turned.forEach(function (tile) {
-            if (match) {
-                cc.audioEngine.playEffect(mrrobinsmith.res.correct)
+            if (isMatch) {
                 tile.lock()
             }
             else {
