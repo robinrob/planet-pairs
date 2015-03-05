@@ -1,0 +1,23 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : false,
+    "frameRate" : 60,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d"],
+
+    "jsList" : [
+        "src/CompositeSprite.js",
+        "src/GameLayer.js",
+        "src/GameScene.js",
+        "src/globals.js",
+        "src/StartScene.js",
+        "src/StartLayer.js",
+        "src/Tile.js",
+        "src/ui.js"
+    ]
+}
