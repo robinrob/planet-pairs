@@ -56,7 +56,10 @@ mrrobinsmith.res = {
     arial: "res/fonts/Arial.ttf",
 
     correct: "res/sounds/correct.wav",
-    wrong: "res/sounds/wrong.wav"
+    wrong: "res/sounds/wrong.wav",
+
+    fish_plist: "res/fish.plist",
+    fish_png: "res/fish.png"
 };
 
 mrrobinsmith.resources = [];

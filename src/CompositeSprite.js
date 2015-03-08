@@ -1,16 +1,21 @@
 var CompositeSprite = cc.Sprite.extend({
+    child_resources: null,
     components: null,
 
     ctor: function(resources) {
         cc.log("Sprite.ctor ...")
         this._super(resources.shift());
 
-        this.setChildren(resources)
+        this.child_resources = resources
+        this.init()
+    },
+
+    init: function() {
+        this.setChildren(this.child_resources)
     },
 
     setChildren: function(resources) {
         this.removeAllChildren()
-
         resources.forEach(function(res, index){
             var child = new cc.Sprite(res)
             child.setPosition(cc.p(this.width / 2, this.height / 2))
