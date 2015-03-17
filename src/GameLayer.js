@@ -20,6 +20,38 @@ var GameLayer = cc.Layer.extend({
         this.init()
     },
 
+    init: function() {
+        this._super()
+
+        this._constructListener()
+        this._constructBackground()
+        this._constructRestartMenu()
+        this._constructStats()
+        this.setMoves(0)
+
+        this.gameArray = this.GAME_ARRAY.concat()
+        this.turned = []
+        this.setMoves(0)
+
+        var that = this
+        this.tiles.forEach(function(tile) {
+            that.removeChild(tile)
+        })
+
+        this.tiles = []
+        var nTiles = this.gameArray.length
+        for(i = 0; i < nTiles; i++){
+            var tile = new Tile(this.takeRandom(this.gameArray))
+            cc.eventManager.addListener(this.listener.clone(), tile);
+            this.tiles.push(tile)
+            this.addChild(tile, 1);
+
+            var x = this.MARGIN + ((i % 4) * (this.TILE_SIZE + this.GAP))
+            var y = 400 - (Math.floor(i / 4) * (this.TILE_SIZE + this.GAP))
+            tile.setPosition(x, y);
+        }
+    },
+
     _constructListener: function() {
         var that = this
         this.listener = cc.EventListener.create({
@@ -64,38 +96,6 @@ var GameLayer = cc.Layer.extend({
         lbl.setPosition((width + this.FONT_SIZE) / 2, winSize.height - height)
         this.addChild(lbl)
         this.scoreLabel = lbl
-    },
-
-    init: function() {
-        this._super()
-
-        this._constructListener()
-        this._constructBackground()
-        this._constructRestartMenu()
-        this._constructStats()
-        this.setMoves(0)
-
-        this.gameArray = this.GAME_ARRAY.concat()
-        this.turned = []
-        this.setMoves(0)
-
-        var that = this
-        this.tiles.forEach(function(tile) {
-            that.removeChild(tile)
-        })
-
-        this.tiles = []
-        var nTiles = this.gameArray.length
-        for(i = 0; i < nTiles; i++){
-            var tile = new Tile(this.takeRandom(this.gameArray))
-            cc.eventManager.addListener(this.listener.clone(), tile);
-            this.tiles.push(tile)
-            this.addChild(tile, 1);
-
-            var x = this.MARGIN + ((i % 4) * (this.TILE_SIZE + this.GAP))
-            var y = 400 - (Math.floor(i / 4) * (this.TILE_SIZE + this.GAP))
-            tile.setPosition(x, y);
-        }
     },
 
     setMoves: function(moves) {
